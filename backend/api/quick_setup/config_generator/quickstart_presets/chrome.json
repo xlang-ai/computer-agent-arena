@@ -1,0 +1,564 @@
+{
+  "chrome": [
+    {
+      "weight": 5,
+      "preset": "Google Search",
+      "url": "https://www.google.com",
+      "category": "Search Engine"
+    },
+    {
+      "weight": 5,
+      "preset": "Perplexity",
+      "url": "https://www.perplexity.ai/",
+      "category": "Search Engine"
+    },
+    {
+      "preset": "Google Gmail",
+      "url": "https://mail.google.com/",
+      "category": "Productivity",
+      "weight": 5,
+      "sub": [
+        "https://mail.google.com/mail/u/1/#inbox"
+      ]
+    },
+    {
+      "preset": "Google Calendar",
+      "url": "https://calendar.google.com/",
+      "category": "Productivity",
+      "weight": 5,
+      "sub": [
+        "https://calendar.google.com/calendar/u/0/r/day",
+        "https://calendar.google.com/calendar/u/0/r/week",
+        "https://calendar.google.com/calendar/u/0/r/tasks?pli=1"
+      ]
+    },
+    {
+      "preset": "Google Meet",
+      "url": "https://meet.google.com/",
+      "category": "Productivity",
+      "weight": 5
+    },
+    {
+      "preset": "TikTok",
+      "url": "https://www.tiktok.com/foryou",
+      "category": "Entertainment",
+      "weight": 3,
+      "sub":[
+        "https://www.tiktok.com/discover",
+        "https://www.tiktok.com/explore",
+        "https://www.tiktok.com/foryou"
+      ]
+    },
+    {
+      "preset": "Expedia",
+      "url": "https://www.expedia.com/",
+      "sub": [
+        "https://www.expedia.com/Hotels",
+        "https://www.expedia.com/Vacation-Packages",
+        "https://www.expedia.com/Things-To-Do"
+      ],
+      "category": "Travel"
+    },
+    {
+      "weight": 3,
+      "preset": "Booking.com",
+      "url": "https://www.booking.com/",
+      "category": "Travel",
+      "sub":[
+        "https://www.booking.com/accommodations",
+        "https://www.booking.com/attractions",
+        "https://www.booking.com/flights/"
+      ]
+    },
+    {
+      "preset": "Trip.com",
+      "url": "https://trip.com/",
+      "sub": [
+        "https://www.trip.com/flights/",
+        "https://www.trip.com/hotels/",
+        "https://www.trip.com/trains/"
+      ],
+      "category": "Travel"
+    },
+    {
+      "preset": "Airbnb",
+      "url": "https://airbnb.com",
+      "sub": [
+        "https://www.airbnb.com/s/homes",
+        "https://www.airbnb.com/s/experiences",
+        "https://www.airbnb.com/s/experiences/online"
+      ],
+      "category": "Travel"
+    },
+    {
+      "preset": "Amtrak",
+      "url": "https://www.amtrak.com/",
+      "category": "Travel",
+      "sub": [
+        "https://www.amtrak.com/home",
+        "https://www.amtrak.com/schedules",
+        "https://www.amtrak.com/fares"
+      ]
+    },
+    {
+      "weight": 5,
+      "preset": "Amazon Shopping",
+      "url": "https://www.amazon.com/",
+      "sub": [
+        "https://www.amazon.com/gp/cart/view.html?ref_=nav_cart",
+        "https://www.amazon.com/gp/bestsellers/?ref_=nav_em_cs_bestsellers_0_1_1_2",
+        "https://www.amazon.com/gp/new-releases/ref=zg_bs_tab_bsnr"
+      ],
+      "category": "Shopping"
+    },
+    {
+      "weight": 3,
+      "preset": "eBay",
+      "url": "https://www.ebay.com/",
+      "sub": [
+        "https://www.ebay.com/b/Auto-Parts-and-Vehicles/6000/bn_1865334",
+        "https://www.ebay.com/b/Electronics/bn_7000259124",
+        "https://www.ebay.com/b/Collectibles-Art/bn_7000259855"
+      ],
+      "category": "Shopping"
+    },
+    {
+      "preset": "IKEA",
+      "url": "https://www.ikea.com/",
+      "sub": [
+        "https://www.ikea.com/us/en/cat/products-products/",
+        "https://www.ikea.com/us/en/cat/rooms-rooms/",
+        "https://www.ikea.com/us/en/cat/sale-sale/"
+      ],
+      "category": "Shopping"
+    },
+    {
+      "preset": "Instacart",
+      "url": "https://www.instacart.com/",
+      "category": "Shopping",
+      "sub": [
+        "https://www.instacart.com/intro",
+        "https://www.instacart.com/store",
+        "https://www.instacart.com/help"
+      ]
+    },
+    {
+      "preset": "Apple",
+      "url": "https://www.apple.com/",
+      "category": "Shopping",
+      "sub": [
+        "https://www.apple.com/support/",
+        "https://www.apple.com/store",
+        "https://www.apple.com/education/"
+      ]
+    },
+    {
+      "preset": "Samsung US",
+      "url": "https://www.samsung.com/us/",
+      "category": "Shopping",
+      "sub": [
+        "https://www.samsung.com/us/support/",
+        "https://www.samsung.com/us/store/",
+        "https://www.samsung.com/us/galaxy/"
+      ]
+    },
+    {
+      "preset": "Steam Store",
+      "url": "https://store.steampowered.com/",
+      "category": "Entertainment"
+    },
+    {
+      "preset": "Yelp",
+      "url": "https://www.yelp.com/",
+      "category": "Entertainment",
+      "sub": [
+        "https://biz.yelp.com/",
+        "https://www.yelp.com/events",
+        "https://www.yelp.com/directory"
+      ]
+    },
+    {
+      "preset": "Stack Overflow",
+      "url": "https://stackoverflow.com/",
+      "category": "Coding",
+      "sub": [
+        "https://stackoverflow.com/questions",
+        "https://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-processing-an-unsorted-array",
+        "https://stackoverflow.com/tags"
+      ]
+    },
+    {
+      "preset": "ESPN",
+      "url": "https://www.espn.com/",
+      "category": "Sports",
+      "sub": [
+        "https://www.espn.com/nba/",
+        "https://www.espn.com/nfl/",
+        "https://www.espn.com/mlb/"
+      ]
+    },
+    {
+      "preset": "BBC News",
+      "url": "https://www.bbc.com/news",
+      "category": "News",
+      "sub": [
+        "https://www.bbc.com/business",
+        "https://www.bbc.com/innovation",
+        "https://www.bbc.com/culture"
+      ]
+    },
+    {
+      "preset": "CNN",
+      "url": "https://www.cnn.com/",
+      "category": "News",
+      "sub": [
+        "https://edition.cnn.com/",
+        "https://www.cnn.com/business",
+        "https://www.cnn.com/entertainment"
+      ]
+    },
+    {
+      "preset": "Bloomberg",
+      "url": "https://www.bloomberg.com/",
+      "category": "News",
+      "sub": [
+        "https://www.bloomberg.com/markets",
+        "https://www.bloomberg.com/technology",
+        "https://www.bloomberg.com/business"
+      ]
+    },
+    {
+      "preset": "Google Maps",
+      "url": "https://www.google.com/maps",
+      "category": "Travel",
+      "sub": [
+        "https://www.google.com/maps/place/San+Francisco,+CA",
+        "https://www.google.com/maps/place/New+York,+NY",
+        "https://www.google.com/maps/place/Los+Angeles,+CA"
+      ]
+    },
+    {
+      "preset": "GitHub",
+      "url": "https://github.com/",
+      "category": "Coding",
+      "sub": [
+        "https://docs.github.com/",
+        "https://github.com/xlang-ai/OSWorld",
+        "https://github.com/huggingface/transformers"
+      ]
+    },
+    {
+      "preset": "LeetCode",
+      "url": "https://leetcode.com/problemset/",
+      "category": "Coding",
+      "sub": [
+        "https://leetcode.com/explore/",
+        "https://leetcode.com/contest/",
+        "https://leetcode.com/discuss/"
+      ]
+    },
+    {
+      "preset": "HuggingFace",
+      "url": "https://huggingface.co/",
+      "category": "Coding",
+      "sub": [
+        "https://huggingface.co/docs",
+        "https://huggingface.co/models",
+        "https://huggingface.co/spaces"
+      ]
+    },
+    {
+      "preset": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/",
+      "category": "Academic & Education",
+      "sub": [
+        "https://www.semanticscholar.org/paper/",
+        "https://www.semanticscholar.org/author/",
+        "https://www.semanticscholar.org/search"
+      ]
+    },
+    {
+      "preset": "Google Scholar",
+      "url": "https://scholar.google.com/",
+      "category": "Academic & Education",
+      "sub": [
+        "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Transfomer&btnG=",
+        "https://scholar.google.com/citations?view_op=metrics_intro&hl=en",
+        "https://scholar.google.com/citations?view_op=top_venues&hl=en"
+      ]
+    },
+    {
+      "preset": "Coursera",
+      "url": "https://www.coursera.org/",
+      "category": "Academic & Education",
+      "sub": [
+        "https://www.coursera.org/about",
+        "https://www.coursera.org/specializations",
+        "https://www.coursera.org/learn"
+      ]
+    },
+    {
+      "preset": "Amazon Web Services",
+      "url": "https://aws.amazon.com/",
+      "category": "Professional",
+      "sub": [
+        "https://aws.amazon.com/console/",
+        "https://aws.amazon.com/pricing/",
+        "https://aws.amazon.com/free/"
+      ]
+    },
+    {
+      "preset": "Salesforce",
+      "url": "https://login.salesforce.com/",
+      "category": "Coding",
+      "weight": 2,
+      "sub": [
+        "https://developer.salesforce.com/",
+        "https://trailhead.salesforce.com/",
+        "https://help.salesforce.com/"
+      ]
+    },
+    {
+      "preset": "Google Analytics",
+      "url": "https://analytics.google.com/",
+      "category": "Coding",
+      "weight": 4,
+      "sub": [
+        "https://analytics.google.com/analytics/web/",
+        "https://analytics.google.com/analytics/web/#/report-home/a1234567w12345678p123456789",
+        "https://analytics.google.com/analytics/web/#/admin"
+      ]
+    },
+    {
+      "preset": "Microsoft Power BI",
+      "url": "https://app.powerbi.com/",
+      "category": "Coding",
+      "weight": 2,
+      "sub": [
+        "https://app.powerbi.com/groups/",
+        "https://app.powerbi.com/home",
+        "https://app.powerbi.com/share"
+      ]
+    },
+    {
+      "preset": "GitLab",
+      "url": "https://gitlab.com/",
+      "category": "Coding",
+      "weight": 4,
+      "sub": [
+        "https://docs.gitlab.com/",
+        "https://about.gitlab.com/",
+        "https://gitlab.com/explore"
+      ]
+    },
+    {
+      "preset": "Kaggle",
+      "url": "https://www.kaggle.com/",
+      "category": "Coding",
+      "weight": 4,
+      "sub": [
+        "https://www.kaggle.com/competitions",
+        "https://www.kaggle.com/datasets",
+        "https://www.kaggle.com/code"
+      ]
+    },
+    {
+      "preset": "CodeSandbox",
+      "url": "https://codesandbox.io/",
+      "category": "Coding",
+      "weight": 4,
+      "sub": [
+        "https://codesandbox.io/dashboard",
+        "https://codesandbox.io/docs",
+        "https://codesandbox.io/community"
+      ]
+    },
+    {
+      "preset": "Bilibili",
+      "url": "https://www.bilibili.com/",
+      "category": "Entertainment",
+      "weight": 4,
+      "sub": [
+        "https://www.bilibili.com/v/",
+        "https://www.bilibili.com/anime/",
+        "https://www.bilibili.com/manga/"
+      ]
+    },
+    {
+      "preset": "Facebook",
+      "url": "https://www.facebook.com/",
+      "category": "Entertainment",
+      "weight": 5,
+      "sub": [
+        "https://m.facebook.com/",
+        "https://www.facebook.com/groups/",
+        "https://www.facebook.com/events/"
+      ]
+    },
+    {
+      "preset": "NBA",
+      "url": "https://www.nba.com/",
+      "sub": [
+        "https://www.nba.com/games",
+        "https://www.nba.com/stats",
+        "https://www.nba.com/standings"
+      ],
+      "category": "Sports",
+      "weight": 5
+    },
+    {
+      "preset": "Fox Sports",
+      "url": "https://www.foxsports.com/",
+      "sub": [
+        "https://www.foxsports.com/nfl",
+        "https://www.foxsports.com/mlb",
+        "https://www.foxsports.com/nba"
+      ],
+      "category": "Sports",
+      "weight": 4
+    },
+    {
+      "preset": "NFL",
+      "url": "https://www.nfl.com/",
+      "sub": [
+        "https://www.nfl.com/scores",
+        "https://www.nfl.com/standings",
+        "https://www.nfl.com/stats"
+      ],
+      "category": "Sports",
+      "weight": 5
+    },
+    {
+      "preset": "TradingView",
+      "url": "https://www.tradingview.com/",
+      "sub": [
+        "https://www.tradingview.com/chart/",
+        "https://www.tradingview.com/screener/",
+        "https://www.tradingview.com/markets/"
+      ],
+      "category": "Finance",
+      "weight": 5
+    },
+    {
+      "preset": "NYTimes",
+      "url": "https://www.nytimes.com/",
+      "sub": [
+        "https://www.nytimes.com/section/world",
+        "https://www.nytimes.com/section/us",
+        "https://www.nytimes.com/section/politics"
+      ],
+      "category": "News",
+      "weight": 5
+    },
+    {
+      "preset": "Medium",
+      "url": "https://medium.com/",
+      "sub": [
+        "https://medium.com/topics",
+        "https://blog.medium.com/trending",
+        "https://medium.com/me/lists"
+      ],
+      "category": "News",
+      "weight": 4
+    },
+    {
+      "preset": "ArXiv",
+      "url": "https://arxiv.org/",
+      "category": "Academic & Education",
+      "weight": 4,
+      "sub": [
+        "https://arxiv.org/list/cs.AI/recent",
+        "https://arxiv.org/list/cs.CV/recent",
+        "https://arxiv.org/search/advanced"
+      ]
+    },
+    {
+      "preset": "Yelp",
+      "url": "https://www.yelp.com/",
+      "category": "Entertainment",
+      "weight": 4,
+      "sub":[
+        "https://www.yelp.com/search?find_desc=Restaurants&find_loc=San+Francisco%2C+CA",
+        "https://www.yelp.com/search?find_desc=Auto+Services&find_loc=Los+Angeles%2C+CA%2C+United+States",
+        "https://www.yelp.com/search?find_desc=Home+Services&find_loc=Los+Angeles%2C+CA"
+      ]
+    },
+    {
+      "preset": "Twitch",
+      "url": "https://www.twitch.tv/",
+      "category": "Entertainment",
+      "weight": 4,
+      "sub": [
+        "https://www.twitch.tv/directory",
+        "https://www.twitch.tv/directory/esports",
+        "https://www.twitch.tv/directory/game/Music%20%26%20Performing%20Arts"
+      ]
+    },
+    {
+      "preset": "Staynb (Airbnb Clone)",
+      "url": "https://evals-staynb.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "Omnizon (Amazon Clone)",
+      "url": "https://evals-omnizon.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "DashDish (DoorDash Clone)",
+      "url": "https://evals-dashdish.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "GoCalendar (Google Calendar Clone)",
+      "url": "https://evals-gocalendar.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "GoMail (Gmail Clone)",
+      "url": "https://evals-gomail.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "OpenDining (OpenTable Clone)",
+      "url": "https://evals-opendining.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "NetworkIn (LinkedIn Clone)",
+      "url": "https://evals-networkin.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "Udriver (Uber Clone)",
+      "url": "https://evals-udriver.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "Fly Unified (United Clone)",
+      "url": "https://evals-flyunified.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "TopWork (UpWork Clone)",
+      "url": "https://evals-topwork.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    },
+    {
+      "preset": "Zilloft (Zillow Clone)",
+      "url": "https://evals-zilloft.vercel.app/",
+      "category": "AI Benchmarks",
+      "weight": 3
+    }
+  ]
+}

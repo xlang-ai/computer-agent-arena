@@ -1,0 +1,92 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/pro-components": "^2.7.0",
+    "@emotion/css": "^11.11.2",
+    "@fingerprintjs/fingerprintjs": "^4.6.1",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.1",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.1.5",
+    "@popperjs/core": "^2.11.8",
+    "@preline/tooltip": "^2.5.0",
+    "@react-oauth/google": "^0.12.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/jwt-decode": "^3.1.0",
+    "@types/node": "^16.18.96",
+    "@types/pako": "^2.0.3",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
+    "@types/react-helmet": "^6.1.11",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "@xstate/react": "^4.1.0",
+    "antd": "^5.16.1",
+    "axios": "^1.7.9",
+    "headlessui": "^0.0.0",
+    "heroicons": "^2.1.5",
+    "html-to-image": "^1.11.11",
+    "ink": "^4.4.1",
+    "jwt-decode": "^4.0.0",
+    "katex": "^0.16.21",
+    "pako": "^2.1.0",
+    "react": "^18.3.1",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.3.1",
+    "react-helmet": "^6.1.0",
+    "react-katex": "^3.0.1",
+    "react-markdown": "^10.1.0",
+    "react-pip": "^1.1.0",
+    "react-player": "^2.16.0",
+    "react-router": "^6.23.0",
+    "react-router-dom": "^6.23.0",
+    "react-scripts": "^5.0.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "react-tooltip": "^5.28.0",
+    "remark-gfm": "^4.0.1",
+    "socket.io-client": "^4.7.5",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "xstate": "^5.10.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-katex": "^3.0.4",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}

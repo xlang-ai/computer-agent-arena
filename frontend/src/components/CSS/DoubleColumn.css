@@ -1,0 +1,8 @@
+.ant-tour-inner {
+  max-width: 90vw !important;
+  margin: auto !important;
+}
+
+.ant-tour {
+  max-width: 100vw !important;
+}

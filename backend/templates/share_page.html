@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ thumbnail_image_url }}">
+    
+    <!-- Open Graph tags for other platforms -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ thumbnail_image_url }}">
+    <meta property="og:url" content="{{ share_url }}">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .agent-message img {
+            max-width: 100%;
+            border-radius: 0.375rem;
+        }
+        .markdown-content code {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .markdown-content pre {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 1em;
+            border-radius: 0.375rem;
+            overflow-x: auto;
+            margin: 0.5em 0;
+        }
+        .markdown-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-8 text-center">
+            <div class="flex justify-center mb-4">
+                <a href="https://arena.xlang.ai" target="_blank" rel="noopener noreferrer">
+                    <img src="https://arena.xlang.ai/logo.png" alt="Computer Agent Arena Logo" class="h-12">
+                </a>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Computer Agent Arena</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400">{{ description }}</p>
+        </header>
+        
+        <!-- Main Content -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+            <!-- Agents Info -->
+            {% if share_data.agent and share_data.vlm %}
+            <div class="grid grid-cols-2 gap-4 bg-gray-100 dark:bg-gray-700 rounded-lg px-4 py-2 mb-4">
+                <div class="flex flex-col">
+                    <h3 class="font-semibold text-base mb-1 dark:text-white">Agent A</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">
+                        {% if share_data.vlm[0] %}{{ share_data.vlm[0] }}{% endif %}
+                        {% if share_data.agent[0] %}+ {{ share_data.agent[0] }}{% endif %}
+                    </p>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-semibold text-base mb-1 dark:text-white">Agent B</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">
+                        {% if share_data.vlm[1] %}{{ share_data.vlm[1] }}{% endif %}
+                        {% if share_data.agent[1] %}+ {{ share_data.agent[1] }}{% endif %}
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Conversation -->
+            <div class="flex flex-col gap-6">
+                {% for i in range(share_data.leftData|length) %}
+                    {% set leftItem = share_data.leftData[i] if i < share_data.leftData|length else None %}
+                    {% set rightItem = share_data.rightData[i] if i < share_data.rightData|length else None %}
+                    
+                    <div class="flex flex-col gap-4">
+                        <!-- User Message -->
+                        {% if leftItem and leftItem.type == 'user' %}
+                            <div class="flex justify-start gap-2 mx-4">
+                                <div class="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
+                                    <p class="text-white">U</p>
+                                </div>
+                                <div class="bg-orange-100 dark:bg-orange-900 rounded-lg px-4 py-2 max-w-[50%]">
+                                    <p class="text-base dark:text-white">
+                                        {{ leftItem.content[0].title if leftItem.content and leftItem.content[0] }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% elif rightItem and rightItem.type == 'user' %}
+                            <div class="flex justify-start gap-2 mx-4">
+                                <div class="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
+                                    <p class="text-white">U</p>
+                                </div>
+                                <div class="bg-orange-100 dark:bg-orange-900 rounded-lg px-4 py-2 max-w-[50%]">
+                                    <p class="text-base dark:text-white">
+                                        {{ rightItem.content[0].title if rightItem.content and rightItem.content[0] }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endif %}
+                        
+                        <!-- Agent Responses -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left Agent -->
+                            {% if leftItem and leftItem.type == 'agent' and leftItem.content %}
+                                <div class="flex flex-col gap-2 border dark:border-gray-700 rounded-lg p-4">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm">A</span>
+                                        </div>
+                                        <h3 class="text-md font-medium dark:text-white">
+                                            Agent A - {{ leftItem.name }}
+                                        </h3>
+                                    </div>
+                                    
+                                    {% for step in leftItem.content %}
+                                        <div class="agent-message p-3 border-t dark:border-gray-700 first:border-t-0">
+                                            <!-- Title -->
+                                            <div class="text-base font-semibold text-gray-800 dark:text-white mb-2 whitespace-pre-line">
+                                                {{ step.title }}
+                                            </div>
+                                            
+                                            <!-- Image -->
+                                            {% if step.image %}
+                                                <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden mb-2">
+                                                    <img src="data:image/png;base64,{{ step.image }}" 
+                                                         alt="Step Image" 
+                                                         class="w-full h-full object-contain">
+                                                </div>
+                                            {% endif %}
+                                            
+                                            <!-- Description -->
+                                            <div class="markdown-content text-sm text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                                                {{ step.description if step.description else "No description" }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            
+                            <!-- Right Agent -->
+                            {% if rightItem and rightItem.type == 'agent' and rightItem.content %}
+                                <div class="flex flex-col gap-2 border dark:border-gray-700 rounded-lg p-4">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center">
+                                            <span class="text-white text-sm">B</span>
+                                        </div>
+                                        <h3 class="text-md font-medium dark:text-white">
+                                            Agent B - {{ rightItem.name }}
+                                        </h3>
+                                    </div>
+                                    
+                                    {% for step in rightItem.content %}
+                                        <div class="agent-message p-3 border-t dark:border-gray-700 first:border-t-0">
+                                            <!-- Title -->
+                                            <div class="text-base font-semibold text-gray-800 dark:text-white mb-2 whitespace-pre-line">
+                                                {{ step.title }}
+                                            </div>
+                                            
+                                            <!-- Image -->
+                                            {% if step.image %}
+                                                <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden mb-2">
+                                                    <img src="data:image/png;base64,{{ step.image }}" 
+                                                         alt="Step Image" 
+                                                         class="w-full h-full object-contain">
+                                                </div>
+                                            {% endif %}
+                                            
+                                            <!-- Description -->
+                                            <div class="markdown-content text-sm text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                                                {{ step.description if step.description else "No description" }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Evaluation Results -->
+            {% if share_data.evaluationResults %}
+                <div class="mt-8 border-t dark:border-gray-700 pt-4">
+                    <h2 class="text-xl font-bold mb-4 dark:text-white">Evaluation Results</h2>
+                    
+                    <!-- Agent Evaluations -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <!-- Agent A -->
+                        <div class="border dark:border-gray-700 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold mb-2 dark:text-white">Agent A</h3>
+                            
+                            <div class="space-y-2">
+                                {% if 'correctnessL' in share_data.evaluationResults %}
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Correctness:</span>
+                                        <span class="font-medium dark:text-white">
+                                            {% if share_data.evaluationResults.correctnessL == 1 %}
+                                                Correct
+                                            {% elif share_data.evaluationResults.correctnessL == 0.5 %}
+                                                Partially Correct
+                                            {% elif share_data.evaluationResults.correctnessL == 0 %}
+                                                Wrong
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                {% endif %}
+                                
+                                {% if 'safetyL' in share_data.evaluationResults %}
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Safety:</span>
+                                        <span class="font-medium dark:text-white">
+                                            {% if share_data.evaluationResults.safetyL == 1 %}
+                                                Safe
+                                            {% elif share_data.evaluationResults.safetyL == 0 %}
+                                                Unsafe
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                {% endif %}
+                                
+                                {% if 'harmlessL' in share_data.evaluationResults %}
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Harmlessness:</span>
+                                        <span class="font-medium dark:text-white">
+                                            {% if share_data.evaluationResults.harmlessL == 1 %}
+                                                Harmless
+                                            {% elif share_data.evaluationResults.harmlessL == 0 %}
+                                                Harmful
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <!-- Agent B -->
+                        <div class="border dark:border-gray-700 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold mb-2 dark:text-white">Agent B</h3>
+                            
+                            <div class="space-y-2">
+                                {% if 'correctnessR' in share_data.evaluationResults %}
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Correctness:</span>
+                                        <span class="font-medium dark:text-white">
+                                            {% if share_data.evaluationResults.correctnessR == 1 %}
+                                                Correct
+                                            {% elif share_data.evaluationResults.correctnessR == 0.5 %}
+                                                Partially Correct
+                                            {% elif share_data.evaluationResults.correctnessR == 0 %}
+                                                Wrong
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                {% endif %}
+                                
+                                {% if 'safetyR' in share_data.evaluationResults %}
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Safety:</span>
+                                        <span class="font-medium dark:text-white">
+                                            {% if share_data.evaluationResults.safetyR == 1 %}
+                                                Safe
+                                            {% elif share_data.evaluationResults.safetyR == 0 %}
+                                                Unsafe
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                {% endif %}
+                                
+                                {% if 'harmlessR' in share_data.evaluationResults %}
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600 dark:text-gray-400">Harmlessness:</span>
+                                        <span class="font-medium dark:text-white">
+                                            {% if share_data.evaluationResults.harmlessR == 1 %}
+                                                Harmless
+                                            {% elif share_data.evaluationResults.harmlessR == 0 %}
+                                                Harmful
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Overall Quality -->
+                    {% if 'quality' in share_data.evaluationResults %}
+                        <div class="border dark:border-gray-700 rounded-lg p-4 mb-6">
+                            <h3 class="text-lg font-semibold mb-2 dark:text-white">Overall Quality</h3>
+                            
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Comparison:</span>
+                                <span class="font-medium dark:text-white">
+                                    {% if share_data.evaluationResults.quality == 1 %}
+                                        A is better
+                                    {% elif share_data.evaluationResults.quality == 0.5 %}
+                                        Tie
+                                    {% elif share_data.evaluationResults.quality == 0 %}
+                                        B is better
+                                    {% elif share_data.evaluationResults.quality == -0.5 %}
+                                        Tie (both bad)
+                                    {% else %}
+                                        N/A
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    <!-- Comments -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {% if 'commentA' in share_data.evaluationResults and share_data.evaluationResults.commentA %}
+                            <div class="border dark:border-gray-700 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold mb-2 dark:text-white">Comments on Agent A</h3>
+                                <p class="text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                                    {{ share_data.evaluationResults.commentA }}
+                                </p>
+                            </div>
+                        {% endif %}
+                        
+                        {% if 'commentB' in share_data.evaluationResults and share_data.evaluationResults.commentB %}
+                            <div class="border dark:border-gray-700 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold mb-2 dark:text-white">Comments on Agent B</h3>
+                                <p class="text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                                    {{ share_data.evaluationResults.commentB }}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Footer -->
+        <footer class="text-center">
+            <p class="text-gray-500 dark:text-gray-400 text-sm">
+                Try your own conversation at 
+                <a href="https://arena.xlang.ai" class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300">
+                    Computer Agent Arena
+                </a>
+            </p>
+            <p class="text-gray-400 dark:text-gray-500 text-xs mt-2">
+                © {% raw %}{{ now().year }}{% endraw %} XLang | Created with ❤️ by the XLang Team
+            </p>
+        </footer>
+    </div>
+    
+    <!-- Dark mode toggle script -->
+    <script>
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html> 

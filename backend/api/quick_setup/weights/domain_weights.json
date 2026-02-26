@@ -1,0 +1,7 @@
+{
+    "weights": [
+        {"domain": "Web", "weight": 10},
+        {"domain": "Office", "weight": 2},
+        {"domain": "Code", "weight": 1}
+    ]
+}

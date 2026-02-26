@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Can you make my computer bring back the last tab I shut down?",
+    "path": "../../task_examples/examples/example0.gif",
+    "tag": ["chrome"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "Hey, can you throw in a blank page right after this one?",
+    "path": "../../task_examples/examples/example1.gif",
+    "tag": ["libreoffice_writer"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "How can I force quit LibreOffice Writer from the command line on Ubuntu without restarting my computer or losing any other work?",
+    "path": "../../task_examples/examples/example2.gif",
+    "tag": ["multi_apps"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "Could you help me push the changes from commandline in current project to origin main, with the commit message \"daily update\"?",
+    "path": "../../task_examples/examples/example3.gif",
+    "tag": ["multi_apps"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "How can I extract and save subtitles as \"subtitles.srt\" from a video, storing them in the same directory?",
+    "path": "../../task_examples/examples/example4.gif",
+    "tag": ["multi_apps"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "How can I find and copy the path of \"secret.docx\" on this computer to the clipboard?",
+    "path": "../../task_examples/examples/example5.gif",
+    "tag": ["multi_apps"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "Could you help me convert the opened ods file in the desktop to csv file with the same file name using command line when Libreoffice instance is running?",
+    "path": "../../task_examples/examples/example6.gif",
+    "tag": ["multi_apps"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "Copies file 'file1' to each of directories 'dir1', 'dir2', 'dir3'.",
+    "path": "../../task_examples/examples/example7.gif",
+    "tag": ["os"],
+    "difficalty": "easy"
+  },
+  {
+    "name": "I have a directory named \"todo_list_Jan_1\". Can you help me change its name into \"todo_list_Jan_2\"?",
+    "path": "../../task_examples/examples/example8.gif",
+    "tag": ["os"],
+    "difficalty": "easy"
+  }
+]

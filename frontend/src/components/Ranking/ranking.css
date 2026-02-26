@@ -1,0 +1,44 @@
+/* toolbar icon */
+.ant-pro-table-list-toolbar-setting-item {
+  @apply text-primary-light hover:text-primary-dark;
+}
+
+/* tooltip */
+.ant-tooltip-inner {
+  @apply bg-primary-main !important;
+}
+
+.ant-tooltip-arrow::before {
+  @apply bg-primary-main !important;
+}
+
+.ant-pro-table-list-toolbar-title {
+  @apply text-sm text-text-secondary;
+}
+
+.anticon-down,
+.anticon-close-circle {
+  @apply text-primary-main/50;
+}
+
+.ant-form-item-label {
+  @apply lg:basis-32 !important;
+}
+
+.ant-table-thead .ant-table-cell {
+  @apply text-primary-dark !important;
+  @apply bg-primary-light/10 !important;
+}
+
+.ant-table-content {
+  @apply overflow-x-auto;
+}
+
+.ant-table-cell::before {
+  @apply bg-primary-light/20 !important;
+}
+
+.ant-table-column-sorter-up,
+.ant-table-column-sorter-down {
+  @apply text-primary-light/50;
+}

@@ -1,0 +1,11 @@
+os_env,vlm_name,agent,compare times,evaluate times,correct rate,quality,win rate,safe rate,harmless rate,execution time,elo,overall,ci_high,ci_low,organization,license
+Ubuntu,claude-4-sonnet-20250514,claude_computer_use,391,391,0.512,0,0.5728900255754475,1.0,1.0,24.242788174181552,1152,1152,35,-21,Anthropic,Proprietary
+Ubuntu,claude-3-7-sonnet-20250219,claude_computer_use,510,510,0.527,0,0.5666666666666667,1.0,1.0,21.413249119900126,1142,1142,18,-21,Anthropic,Proprietary
+Ubuntu,ui-tars-1.5-qwen-2.5,ui_tars_agent,154,154,0.266,0,0.512987012987013,1.0,1.0,6.110694992638583,1098,1098,43,-46,ByteDance,Proprietary
+Ubuntu,ui-tars-1.5,ui_tars_agent,510,510,0.498,0,0.503921568627451,1.0,1.0,18.158811606886903,1091,1091,24,-20,ByteDance,Proprietary
+Ubuntu,computer-use-preview,openai_cua_agent,511,511,0.366,0,0.41291585127201563,1.0,1.0,10.58434641395274,1059,1059,19,-23,OpenAI,Proprietary
+Ubuntu,claude-3-5-sonnet-20241022,claude_computer_use,478,478,0.345,0,0.3493723849372385,1.0,1.0,15.038100492005064,1019,1019,24,-24,Anthropic,Proprietary
+Ubuntu,openai/qwen2.5-vl-72b-instruct,base_agent,489,489,0.147,0,0.21063394683026584,1.0,1.0,9.952171385793749,898,898,27,-27,Qwen,Proprietary
+Ubuntu,o4-mini-2025-04-16,base_agent,266,266,0.117,0,0.17669172932330826,1.0,1.0,24.146101384934887,886,886,27,-26,OpenAI,Proprietary
+Ubuntu,gpt-4.1-2025-04-14,base_agent,404,404,0.069,0,0.07425742574257425,1.0,1.0,20.591032743264865,842,842,23,-29,OpenAI,Proprietary
+Ubuntu,gemini/gemini-2.5-pro-exp-03-25,base_agent,391,391,0.100,0,0.09462915601023018,1.0,1.0,8.321508818860742,812,812,32,-31,Google,Proprietary

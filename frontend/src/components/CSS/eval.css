@@ -1,0 +1,57 @@
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  background-color: #e7f2f0;
+  padding: 2%;
+}
+.options:hover {
+  color: #424242;
+}
+@keyframes breathing {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2); /* 绿色阴影 */
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 1); /* 绿色阴影 */
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2); /* 绿色阴影 */
+  }
+}
+
+.animate-breathing {
+  animation: breathing 2s infinite;
+}
+
+@keyframes bounce-left {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+.animate-bounce-left {
+  display: inline-block;
+  animation: bounce-left 1s infinite;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.animate-shake {
+  display: inline-block;
+  animation: shake 0.5s infinite;
+}

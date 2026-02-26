@@ -1,0 +1,53 @@
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 确保左右按钮组靠边，中间按钮组居中 */
+  padding: 12px;
+  flex: 1;
+  gap: 8px;
+  background-color: #f2f2f2;
+}
+.button-group-left {
+  align-items: center;
+  padding-left: 4%;
+  flex: 1; /* 让所有按钮组平分空间 */
+  display: flex;
+  justify-content: center; /* 使每个按钮组内的内容居中显示 */
+  width: 75%;
+  background-color: #f2f2f2;
+}
+.button-group-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4%;
+  flex: 1;
+  gap: 8px;
+  width: 20%;
+  background-color: #f2f2f2;
+}
+.button-group:hover {
+  color: #424242;
+}
+.button-group-left:hover {
+  color: #424242;
+}
+.button {
+  color: #424242;
+}
+.button:hover {
+  color: black;
+}

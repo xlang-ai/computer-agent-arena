@@ -1,0 +1,85 @@
+name: Build and Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' || contains(github.event.head_commit.message, '[deploy]')
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install Packages
+        run: npm install
+        working-directory: frontend
+
+      - name: Build
+        env: 
+          REACT_APP_DOMAIN: ${{ github.ref == 'refs/heads/main' && 'https://arena.xlang.ai' || 'https://arena-dev.xlang.ai' }}
+        run: CI=false npm run build
+        working-directory: frontend
+
+      - name: Upload to Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ github.ref == 'refs/heads/main' && secrets.SERVER_HOST || secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: 'frontend/build/.'
+          target: '~/agent_arena_frontend_temp'
+          strip_components: 2
+
+      - name: Deploy and Setup Permissions
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ github.ref == 'refs/heads/main' && secrets.SERVER_HOST || secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            # Create backup
+            TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+            BACKUP_DIR="/tmp/frontend_backup_${TIMESTAMP}"
+            sudo mkdir -p ${BACKUP_DIR}
+            sudo cp -r /var/www/html/* ${BACKUP_DIR}/ 2>/dev/null || true
+            
+            # Deploy new version
+            sudo rm -rf /var/www/html/*
+            sudo mv ~/agent_arena_frontend_temp/* /var/www/html/
+            sudo rm -rf ~/agent_arena_frontend_temp
+            
+            # Set permissions
+            sudo chown -R www-data:www-data /var/www/html
+            sudo chmod -R 755 /var/www/html
+            
+            # Verify deployment
+            if [ ! -f /var/www/html/index.html ]; then
+              echo "Deployment verification failed, rolling back..."
+              sudo rm -rf /var/www/html/*
+              sudo cp -r ${BACKUP_DIR}/* /var/www/html/
+              exit 1
+            fi

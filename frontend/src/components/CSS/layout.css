@@ -1,0 +1,7 @@
+.ant-layout-content {
+  @apply max-md:px-2 max-md:py-0 !important;
+}
+
+.ant-pro-card-body {
+  @apply max-md:px-0 max-md:py-0 !important;
+}

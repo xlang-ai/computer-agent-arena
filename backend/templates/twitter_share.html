@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ thumbnail_image_url }}">
+    
+    <!-- Open Graph tags for other platforms -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ image_url }}">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <img src="{{ image_url }}" alt="{{ title }}">
+</body>
+</html>

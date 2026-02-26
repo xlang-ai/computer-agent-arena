@@ -1,0 +1,3 @@
+[submodule "backend/agents"]
+	path = backend/agents
+	url = git@github.com:xlang-ai/computer-agent-arena-hub.git
