@@ -131,7 +131,7 @@ computer-agent-arena/
 
 ---
 
-## Citation
+<!-- ## Citation
 
 ```bibtex
 @inproceedings{wang2026computeragentarena,
@@ -149,7 +149,7 @@ computer-agent-arena/
 
 We welcome new agent integrations and platform improvements. See [CONTRIBUTING.md](CONTRIBUTING.md) or contact us at [bryanwang.nlp@gmail.com](mailto:bryanwang.nlp@gmail.com).
 
----
+--- -->
 
 ## License
 
